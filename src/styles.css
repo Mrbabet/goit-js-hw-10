@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+img {
+  width: 700px;
+}
+body {
+  padding: 16px 24px;
+}
+
+.cat-info {
+  padding-block: 32px;
+  display: flex;
+  margin: 0 auto;
+}
+.cat-text-container {
+  margin-left: 32px;
+}
+.loader {
+  font-size: 18px;
+  font-weight: 600;
+}
+.error {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 600;
+}
+.is-hidden {
+  display: none;
+}

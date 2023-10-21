@@ -10,6 +10,13 @@ const refs = {
   catCard: document.querySelector('.cat-info'),
 };
 
+Notiflix.Loading.standard(refs.loader.textContent, {
+  backgroundColor: '#000',
+  svgColor: '#5897fb',
+  svgSize: '130px',
+  messageFontSize: '30px',
+});
+
 const updateSelect = function () {
   fetchBreeds()
     .then(data => {
@@ -23,13 +30,20 @@ const updateSelect = function () {
         select: refs.select,
       });
     })
-    .catch(onError);
+    .catch(onError)
+    .finally(result => Notiflix.Loading.remove(2000));
 };
 
 updateSelect();
 
 refs.select.addEventListener('change', e => {
   const breedId = e.currentTarget.value;
+
+  Notiflix.Loading.dots({
+    svgColor: '#5897fb',
+    svgSize: '130px',
+    messageFontSize: '30px',
+  });
 
   fetchCatByBreed(breedId)
     .then(data => {
@@ -42,7 +56,8 @@ refs.select.addEventListener('change', e => {
               </div>`;
       });
     })
-    .catch(onError);
+    .catch(onError)
+    .finally(result => Notiflix.Loading.remove());
 });
 
 function onError() {
@@ -50,7 +65,5 @@ function onError() {
   refs.loader.classList.replace('loader', 'is-hidden');
   refs.err.classList.remove('is-hidden');
 
-  Notiflix.Notify.failure(
-    'Oops! Something went wrong! Try reloading the page or select another cat breed!'
-  );
+  Notiflix.Notify.failure(refs.err.textContent);
 }

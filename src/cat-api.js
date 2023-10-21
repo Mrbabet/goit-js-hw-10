@@ -4,7 +4,7 @@ const API_KEY =
 
 export function fetchBreeds() {
   return fetch(`${URL}/breeds?api_key=${API_KEY}`).then(response => {
-    if (!response.ok) throw new Error(response.stasus);
+    if (!response.ok) throw new Error(response.status);
 
     return response.json();
   });
@@ -13,7 +13,7 @@ export function fetchCatByBreed(breedID) {
   return fetch(
     `${URL}/images/search?api_key=${API_KEY}&breed_ids=${breedID}`
   ).then(response => {
-    if (!response.ok) throw new Error(response.stasus);
+    if (!response.ok) throw new Error(response.status);
 
     return response.json();
   });

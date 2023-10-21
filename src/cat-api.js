@@ -18,24 +18,3 @@ export function fetchCatByBreed(breedID) {
     return response.json();
   });
 }
-
-// const fetchCatByBreed = function (breedID) {
-//   const IMAGES_URL = `${URL}images/search`;
-//   const searchParams = new URLSearchParams({ breed_ids: breedID });
-
-//   return fetch(`${IMAGES_URL}?${searchParams}`)
-//     .then(response => {
-//       if (!response.ok) throw new Error(response.status);
-
-//       return response.json();
-//     })
-//     .then(data => {
-//       return data;
-//     })
-//     .catch(error => {
-//       console.log(error);
-//     });
-// };
-// fetchCatByBreed();
-
-// export { fetchBreeds, fetchCatByBreed };

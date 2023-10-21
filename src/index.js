@@ -10,7 +10,7 @@ const refs = {
   catCard: document.querySelector('.cat-info'),
 };
 
-updateSelect = function () {
+const updateSelect = function () {
   fetchBreeds()
     .then(data => {
       refs.loader.classList.replace('loader', 'is-hidden');
